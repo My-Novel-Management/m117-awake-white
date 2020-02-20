@@ -13,8 +13,10 @@ from storybuilder.builder.writer import Writer
 ## assets
 from storybuilder.assets import basic
 ## local files
+from episodes.main import ep_main
+## settings
 from config import DAYS, ITEMS, LAYERS, PERSONS, RUBIS, STAGES, TIMES, WORDS
-from src.demo.main import ep_demo
+
 
 ## define alias
 W = Writer
@@ -46,13 +48,13 @@ _ = Writer.getWho()
 ## main
 def ch_main(w: World):
     return w.chapter("main",
-            ep_demo(w),
+            ep_main(w),
             )
 
 def create_world():
     """Create a world.
     """
-    w = World("title")
+    w = World("真っ白な世界で、真っ黒な君と")
     w.setCommonData()
     w.setAssets(basic.ASSET)
     w.buildDB(PERSONS,
@@ -63,6 +65,7 @@ def create_world():
     # w.entryBlock()
     # w.entryHistory()
     # w.entryLifeNote()
+    w.setOutline("朝目覚めたら色を失って線画みたいな世界にいた少年は、真っ黒に染まった少女と出会い、彼女を助ける為に自らを犠牲にする")
     return w
 
 
